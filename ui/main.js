@@ -1,3 +1,3 @@
-//console.log('Loaded!');
-var a1=document.getElementById('mytext');
-a1.innerHTML='Hello New';
+console.log('Loaded!');
+document.getElementById('mytext').innerHTML='Hello New';
+//a1.innerHTML='Hello New';
