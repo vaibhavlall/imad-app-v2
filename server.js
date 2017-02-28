@@ -9,7 +9,7 @@ var config= {
     database:'db-vaibhavlall-44050',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:vaibhavlall
 };
 app.use(morgan('combined'));
 var counter=0;
