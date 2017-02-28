@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var app = express();
 var Pool=require('pg').Pool;
+var pool=new Pool(config);
 var config= {
     user:'vaibhavlall',
     database:'db-vaibhavlall-44050',
@@ -16,6 +17,20 @@ app.get('/counter',function(req,res)
 {
   counter=counter+1;
   res.send(counter.toString());
+});
+app.get('/test-db',function(req,res)
+{
+    pool.query('select * from article',function(err,result)
+    {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send(JSON.stringify(result));
+        }
+    })
 });
 var articles={
 'article-one': 
