@@ -2,6 +2,14 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var app = express();
+var Pool=require('pg').Pool;
+var config= {
+    user:'vaibhavlall',
+    database:'db-vaibhavlall-44050',
+    host:'http://db.imad.hasura-app.io',
+    port:'5432',
+    password:process.env.DB_PASSWORD
+};
 app.use(morgan('combined'));
 var counter=0;
 app.get('/counter',function(req,res)
