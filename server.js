@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var app = express();
 var Pool=require('pg').Pool;
-var pool=new Pool(config);
+
 var config= {
     user:'vaibhavlall',
     database:'db-vaibhavlall-44050',
@@ -11,6 +11,7 @@ var config= {
     port:'5432',
     password:process.env.DB_PASSWORD
 };
+var pool=new Pool(config);
 app.use(morgan('combined'));
 var counter=0;
 app.get('/counter',function(req,res)
