@@ -33,32 +33,6 @@ app.get('/test-db',function(req,res)
         }
     })
 });
-var articles={
-'article-one': 
-{
-    title:`Article One | Vaibhav Lall`,     
-    heading:'Article One',     
-    date:'Sept 5 2017',     
-    content:`
-    <p>Welcome to article one Welcome to articleone Welcome to article one</p>` 
- },
-  'article-two': 
-  {
-    title:`Article Two | Vaibhav Lall`,     
-    heading:'Article Two',     
-    date:'Sept 10 2017',     
-    content:`
-    <p>Welcome to article two</p> `
-  },
-  'article-three': 
-  {
-    title:`Article Three | Vaibhav Lall`,     
-    heading:'Article Three',     
-    date:'Sept 15 2017',     
-    content:`
-    <p>Welcome to article three</p> `
-  }
-};
 function createTemplate(data)
 {
 	var title=data.title;
