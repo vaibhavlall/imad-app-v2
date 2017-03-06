@@ -6,10 +6,10 @@ var Pool=require('pg').Pool;
 
 var config= {
     user:'vaibhavlall',
-    database:'db-vaibhavlall-44050',
+    database:'vaibhavlall',
     host:'107.167.180.145',
     port:'5432',
-    password:'db-vaibhavlall-44050'
+    password:process.env.DB_PASSWORD
 };
 var pool=new Pool(config);
 app.use(morgan('combined'));
