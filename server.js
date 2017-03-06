@@ -68,7 +68,7 @@ function createTemplate(data)
 	var htmlTemplate=
 	`<html><head><title>${title}</title>
 	<meta ="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" type="text/css" href="style.css"/></head>
-	<body><div class="container"><a href="/">Home</a><h1>${heading}</h1></br>${date}<br/><div>${content}</div></body></html>`;
+	<body><div class="container"><a href="/">Home</a><h1>${heading}</h1></br>${date.toDateString()}<br/><div>${content}</div></body></html>`;
 	return htmlTemplate;
 }
 app.get('/', function (req, res) {
