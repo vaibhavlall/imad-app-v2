@@ -9,7 +9,7 @@ var config= {
     database:'db-vaibhavlall-44050',
     host:'107.167.180.145',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:'db-vaibhavlall-44050'
 };
 var pool=new Pool(config);
 app.use(morgan('combined'));
