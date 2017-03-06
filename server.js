@@ -90,7 +90,7 @@ pool.query("Select * from article1 where title='"+req.params.articleName+"'",fun
         else
         {
             var articleData=result.rows[0];
-         	res.send(createTemplate(articles[articleName]))
+         	res.send(createTemplate(articleData))
         }
     }
     
