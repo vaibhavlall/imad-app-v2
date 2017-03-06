@@ -76,7 +76,7 @@ app.get('/', function (req, res) {
 });
 app.get('/articles/:articleName', function (req, res) {
 	var articleName=req.params.articleName;
-pool.query("Select * from article1 where title='"+req.params.articleName+"'",function(err,result){
+pool.query("Select * from article1 where title=$1",[req.params.articleName],function(err,result){
     if(err)
     {
         res.status(500).send(err.toString());
