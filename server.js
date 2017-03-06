@@ -7,9 +7,9 @@ var Pool=require('pg').Pool;
 var config= {
     user:'vaibhavlall',
     database:'vaibhavlall',
-    host:'107.167.180.145',
+    host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:'db-vaibhavlall-44050'
 };
 var pool=new Pool(config);
 app.use(morgan('combined'));
