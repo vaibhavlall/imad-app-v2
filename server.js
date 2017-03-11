@@ -4,6 +4,7 @@ var path = require('path');
 var app = express();
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
+var bodyParser=require('body-parser');
 
 var config= {
     user:'vaibhavlall',
@@ -14,6 +15,7 @@ var config= {
 };
 var pool=new Pool(config);
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 var counter=0;
 app.get('/counter',function(req,res)
 {
@@ -57,9 +59,7 @@ app.get('/hash/:input',function(req,res)
 {
     var hashedString=hash(req.params.input,'this-is-some-random-string');
     res.send(hashedString);
-})
-
-
+});
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -90,6 +90,24 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
+app.post('/create-user',function(req,res)
+{
+    var username=req.body.username;
+    var password=req.body.password;
+    var salt=crypto.getrandomBytes(128).toString('hex');
+    var dbString=hash(password,salt);
+    pool.query('insert into user1(username,password)values($1,$2)',[username,dbString],function(err,result)
+    {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send('User successfully created '+ username);
+        }
+    });
+});
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
